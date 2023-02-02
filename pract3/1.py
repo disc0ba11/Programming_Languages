@@ -52,7 +52,6 @@ args = parser.parse_args()
 
 match args.mode:
     case 'encrypt':
-        # print(args.text)
         print(encrypt(args.text, args.alpha, args.key))
     case 'decrypt':
         print(decrypt(args.text, args.alpha, args.key))
