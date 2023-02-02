@@ -2,6 +2,17 @@ import random
 import argparse
 
 def encrypt(unfiltered_text, alphabet, key):
+    cyrillic_lowercase = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя"
+    cyrillic_uppercase = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ"
+    latin_lowercase = "abcdefghijklmnopqrstuvwxyz"
+    latin_uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    text_list = list(unfiltered_text)
+    for i in range(len(text_list)):
+        if text_list[i] in cyrillic_lowercase:
+            text_list[i] = cyrillic_uppercase[cyrillic_lowercase.find(text_list[i])]
+        if text_list[i] in latin_lowercase:
+            text_list[i] = latin_uppercase[latin_lowercase.find(text_list[i])]
+    unfiltered_text = ''.join(text_list)
     numAlpha = dict()
     for i in range(len(alphabet)):
         numAlpha[i] = alphabet[i]
@@ -23,6 +34,17 @@ def encrypt(unfiltered_text, alphabet, key):
     return result
 
 def decrypt(unfiltered_text, alphabet, key):
+    cyrillic_lowercase = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя"
+    cyrillic_uppercase = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ"
+    latin_lowercase = "abcdefghijklmnopqrstuvwxyz"
+    latin_uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    text_list = list(unfiltered_text)
+    for i in range(len(text_list)):
+        if text_list[i] in cyrillic_lowercase:
+            text_list[i] = cyrillic_uppercase[cyrillic_lowercase.find(text_list[i])]
+        if text_list[i] in latin_lowercase:
+            text_list[i] = latin_uppercase[latin_lowercase.find(text_list[i])]
+    unfiltered_text = ''.join(text_list)
     numAlpha = dict()
     for i in range(len(alphabet)):
         numAlpha[i] = alphabet[i]
